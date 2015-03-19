@@ -1,0 +1,9 @@
+dbname = "postimer"
+dbuser = "your_mysql_username"
+dbpassword = "your_mysql_password"
+dbprefix = ""
+requireLogin = 0
+adminEmail = "admin@yourdomain.net"
+cronjobEmail = "admin@yourdomain.net"
+indexHeader = "Use Settings to Update This Message ..."
+theme = 'classic'
