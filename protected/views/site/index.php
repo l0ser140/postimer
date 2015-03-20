@@ -52,7 +52,7 @@
         'htmlOptions'=>array('style'=>'color: black;'),
         ));
         echo '<script> window.setInterval("updateTimers()", 1000); </script>'.PHP_EOL;
-        echo '<script> window.setInterval("$.fn.yiiGridView.update(\'index-grid\')", 60000); </script>'.PHP_EOL;
+        echo '<script> window.setInterval("$.fn.yiiGridView.update(\'timers-grid\')", 60000); </script>'.PHP_EOL;
 	}
     else
         echo 'You must log in to view the Timer information';        
