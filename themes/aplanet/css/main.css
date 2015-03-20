@@ -236,7 +236,6 @@ div.search-form
 	background: #80CFFF;
 }
 
-tr:hover { background-color: #5184db !important;}
 tr>td.remaining>span.exptext{ display:none; }
 tr>td.remaining>span.timer{ display:inline; }
 tr>td.remaining.expired>span.exptext{ display:inline; }

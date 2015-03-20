@@ -3569,3 +3569,30 @@ Stack trace:
 #23 /home/loser/NetBeansProjects/postimer/framework/base/CApplication.php(180): CWebApplication->processRequest()
 #24 /home/loser/NetBeansProjects/postimer/index.php(13): CWebApplication->run()
 REQUEST_URI=/
+2015/03/20 14:03:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "home/loser/NetBeansProjects/postimer/themes/aplanet/views/skins".' in /home/loser/NetBeansProjects/postimer/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/loser/NetBeansProjects/postimer/framework/web/CWebApplication.php(141): CWebApplication->runController('home/loser/NetB...')
+#1 /home/loser/NetBeansProjects/postimer/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/loser/NetBeansProjects/postimer/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/home/loser/NetBeansProjects/postimer/themes/aplanet/views/skins
+HTTP_REFERER=http://localhost:8000/
+---
+2015/03/20 14:07:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "home/loser/NetBeansProjects/postimer/themes/aplanet/views/skins".' in /home/loser/NetBeansProjects/postimer/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/loser/NetBeansProjects/postimer/framework/web/CWebApplication.php(141): CWebApplication->runController('home/loser/NetB...')
+#1 /home/loser/NetBeansProjects/postimer/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/loser/NetBeansProjects/postimer/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/home/loser/NetBeansProjects/postimer/themes/aplanet/views/skins
+HTTP_REFERER=http://localhost:8000/
+---
+2015/03/20 14:07:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "home/loser/NetBeansProjects/postimer/themes/aplanet/views/skins".' in /home/loser/NetBeansProjects/postimer/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/loser/NetBeansProjects/postimer/framework/web/CWebApplication.php(141): CWebApplication->runController('home/loser/NetB...')
+#1 /home/loser/NetBeansProjects/postimer/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/loser/NetBeansProjects/postimer/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/home/loser/NetBeansProjects/postimer/themes/aplanet/views/skins
+HTTP_REFERER=http://localhost:8000/
+---

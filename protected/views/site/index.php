@@ -15,10 +15,11 @@
         $this->widget('zii.widgets.grid.CGridView', array(
         'id'=>'timers-grid',
         //'cssFile'=>Yii::app()->theme->skinPath,
+        'cssFile'=>'/css/styles.css',
         'dataProvider'=>$model->getAll(),
         'enableSorting'=>false,
         'selectableRows'=>0,
-        'rowCssClassExpression' => '$data->friendly == "No" ? "removed" : "added"',
+        'rowCssClassExpression' => '$data->friendly == "No" ? "hostile" : "allied"',
         'rowHtmlOptionsExpression' => 'array("id"=>$data->id)',
         'columns'=>array(
             array(
