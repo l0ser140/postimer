@@ -14,8 +14,7 @@
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/timers.js" type="text/javascript"></script>'.PHP_EOL;
         $this->widget('zii.widgets.grid.CGridView', array(
         'id'=>'timers-grid',
-        //'cssFile'=>Yii::app()->theme->skinPath,
-        'cssFile'=>'/css/styles.css',
+        'cssFile'=>Yii::app()->theme->baseUrl .'/css/gridview/styles.css',
         'dataProvider'=>$model->getAll(),
         'enableSorting'=>false,
         'selectableRows'=>0,

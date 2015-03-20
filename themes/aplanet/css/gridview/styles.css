@@ -76,7 +76,7 @@
 
 .grid-view table.items tbody tr:hover
 {
-	background: #ECFBD4;
+        background: #ECFBD4;
 }
 
 .grid-view .link-column img
@@ -124,11 +124,19 @@
 	border: 1px solid #ccc;
 }
 
-.grid-view .allied {
-        background:#060;
+.grid-view table.items tbody tr.allied {
+        background:#006600;
         color:#fff;
 }
-.grid-view .hostile {
-        background:#900;
+.grid-view table.items tbody tr.hostile {
+        background:#990000;
+        color:#fff;
+}
+.grid-view table.items tbody tr.allied:hover {
+        background:#339933;
+        color:#fff;
+}
+.grid-view table.items tbody tr.hostile:hover {
+        background:#CC0033;
         color:#fff;
 }
