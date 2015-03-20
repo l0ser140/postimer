@@ -235,3 +235,6 @@ div.search-form
 {
 	background: #80CFFF;
 }
+tr:hover { background-color: #5184db !important;; }
+tr:hover>td>span.expired{ display:none !important; }
+tr:hover>td>span.time{ display:inline !important; }

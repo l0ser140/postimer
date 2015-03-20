@@ -177,7 +177,7 @@ class Pos extends CActiveRecord
           
 
     // PhP version 5.2 doesnt support date_diff
-    public function php5_2_date_diff($start, $end="NOW")
+    public function timer($start, $end="NOW")
     {
         $sdate = strtotime($start);
         $edate = strtotime($end);
@@ -186,7 +186,7 @@ class Pos extends CActiveRecord
         $time = $edate - $sdate;
         if($time>=0 && $time<=59) {
                 // Seconds
-                $timeshift = $time.' seconds ';
+                $timeshift = $time.'s';
 
         } elseif($time>=60 && $time<=3599) {
                 // Minutes + Seconds
@@ -196,7 +196,7 @@ class Pos extends CActiveRecord
                 $presec = $pmin-$premin[0];
                 $sec = $presec*60;
                
-                $timeshift = $premin[0].' min '.round($sec,0).' sec ';
+                $timeshift = $premin[0].'m '.round($sec,0).'s';
 
         } elseif($time>=3600 && $time<=86399) {
                 // Hours + Minutes
@@ -206,10 +206,17 @@ class Pos extends CActiveRecord
                 $premin = $phour-$prehour[0];
                 $min = explode('.',$premin*60);
                
-                $presec = '0.'.@$min[1];
+                if (array_key_exists(1, $min))
+                {
+                        $presec = '0.'.$min[1];
+                }
+                else
+                {
+                        $presec = '0';
+                }
                 $sec = $presec*60;
 
-                $timeshift = $prehour[0].' hrs '.$min[0].' min '.round($sec,0).' sec ';
+                $timeshift = $prehour[0].'h '.$min[0].'m '.round($sec,0).'s';
 
         } elseif($time>=86400) {
                 // Days + Hours + Minutes
@@ -222,13 +229,25 @@ class Pos extends CActiveRecord
                 $premin = ($phour*24)-$prehour[0];
                 $min = explode('.',$premin*60);
                
-                $presec = '0.'.@$min[1];
+                if (array_key_exists(1, $min))
+                {
+                        $presec = '0.'.$min[1];
+                }
+                else
+                {
+                        $presec = '0';
+                }
                 $sec = $presec*60;
                
-                $timeshift = $preday[0].' days '.$prehour[0].' hrs '.$min[0].' min '.round($sec,0).' sec ';
+                $timeshift = $preday[0].'d '.$prehour[0].'h '.$min[0].'m '.round($sec,0).'s';
 
         }
         return $timeshift;
     }
 
+    public function date_html($start, $end="NOW")
+    {
+        $html = '<span style="display: none" class="expired"></span><span class="time">'. $this->timer($start, $end) .'</span>';
+        return $html;
+    }
 }
