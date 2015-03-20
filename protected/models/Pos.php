@@ -176,21 +176,24 @@ class Pos extends CActiveRecord
         }
           
 
-    // PhP version 5.2 doesnt support date_diff
     public function timer($start, $end="NOW")
     {
         $sdate = strtotime($start);
         $edate = strtotime($end);
-        $timeshift = 'Expired';
+        $expired = False;
         
         $time = $edate - $sdate;
+        if ($time < 0) {
+            $expired = True;
+            $time *= -1;
+        }
         if($time>=0 && $time<=59) {
                 // Seconds
                 $timeshift = $time.'s';
 
         } elseif($time>=60 && $time<=3599) {
                 // Minutes + Seconds
-                $pmin = ($edate - $sdate) / 60;
+                $pmin = ($time) / 60;
                 $premin = explode('.', $pmin);
                
                 $presec = $pmin-$premin[0];
@@ -200,7 +203,7 @@ class Pos extends CActiveRecord
 
         } elseif($time>=3600 && $time<=86399) {
                 // Hours + Minutes
-                $phour = ($edate - $sdate) / 3600;
+                $phour = ($time) / 3600;
                 $prehour = explode('.',$phour);
                
                 $premin = $phour-$prehour[0];
@@ -220,7 +223,7 @@ class Pos extends CActiveRecord
 
         } elseif($time>=86400) {
                 // Days + Hours + Minutes
-                $pday = ($edate - $sdate) / 86400;
+                $pday = ($time) / 86400;
                 $preday = explode('.',$pday);
 
                 $phour = $pday-$preday[0];
@@ -242,12 +245,23 @@ class Pos extends CActiveRecord
                 $timeshift = $preday[0].'d '.$prehour[0].'h '.$min[0].'m '.round($sec,0).'s';
 
         }
+        if ($expired) return '-'.$timeshift;
         return $timeshift;
     }
 
     public function date_html($start, $end="NOW")
     {
-        $html = '<span style="display: none" class="expired"></span><span class="time">'. $this->timer($start, $end) .'</span>';
+        $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
         return $html;
+    }
+    
+    public function is_expired($start, $end="NOW")
+    {
+        $sdate = strtotime($start);
+        $edate = strtotime($end);
+        if( $edate - $sdate > 0) {
+            return False;
+        }
+        return True;
     }
 }

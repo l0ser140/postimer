@@ -19,17 +19,15 @@ for(var i=0; i<rows.length; i++){
         var dateString = rows[i].getElementsByClassName('date')[0].innerHTML;
         var date = new Date(dateString.replace(/-/g, "/"));
         date -= offset;
-        var spans = rows[i].getElementsByClassName('remaining')[0].getElementsByTagName('span')
+        var remaining = rows[i].getElementsByClassName('remaining')[0];
         if (date < new Date())
         {
-            if (spans[0].innerHTML !== "Expired"){
-                spans[0].innerHTML = "Expired"
-                spans[0].style.display = "inline";
-                spans[1].style.display = "none";
+            if (remaining.className !== "remaining expired"){
+                remaining.className = "remaining expired";
             }
-            spans[1].innerHTML = "-" + countdown(new Date(), date, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+            remaining.getElementsByTagName('span')[1].innerHTML = "-" + countdown(new Date(), date, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
         } else {
-            spans[1].innerHTML = countdown(new Date(), date, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+            remaining.getElementsByTagName('span')[1].innerHTML = countdown(new Date(), date, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
         }
     }
     }
