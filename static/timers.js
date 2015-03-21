@@ -9,7 +9,8 @@ var offset = new Date().getTimezoneOffset() * 60000;
 countdown.setLabels('|s|m|h|d||||||',
                     '|s|m|h|d||||||',
                     ' ',
-                    ' ');
+                    ' ',
+                    '0s');
                                 
 var div = document.getElementById('timers-grid');
 var rows = div.getElementsByTagName('tr');
