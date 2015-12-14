@@ -50,7 +50,7 @@ date_default_timezone_set('UTC');
         <td><?php echo $form->labelEx($model,'friendly'); ?></td>
         </tr>
         <tr>
-        <td><?php echo $form->dropDownList($model,'type',array('POS'=>'POS', 'Station'=>'Station', 'IHUB'=>'IHUB','TCU'=>'TCU', 'SBU'=>'SBU')); ?></td>
+        <td><?php echo $form->dropDownList($model,'type',array('POS'=>'POS', 'POCO'=>'POCO', 'Station'=>'Station', 'IHUB'=>'IHUB','TCU'=>'TCU')); ?></td>
         <td><?php echo $form->textField($model,'planet'); ?></td>
         <td><?php echo $form->textField($model,'moon'); ?></td>    
         <td><?php echo $form->textField($model,'alliance'); ?></td>
