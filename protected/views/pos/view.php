@@ -26,7 +26,8 @@ $this->menu=array(
 		'planet',
 		'moon',
 		'alliance',
-        'friendly',
+                'friendly',
 		'notes',
+                'posted_by',
 	),
 )); ?>

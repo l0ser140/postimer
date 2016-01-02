@@ -40,9 +40,9 @@
                   'htmlOptions'=>array('class'=>'$data->is_expired("NOW", $data->date) == True ? "remaining expired" : "remaining"',
                                        'width'=>'"145px"'),
                  ),
-            'notes',
             );
         if (Yii::app()->user->checkAccess('pos.admin')) {
+            array_push($columns, 'notes');
             array_push($columns, 'posted_by');
         };
         $this->widget('zii.widgets.grid.CGridView', array(
