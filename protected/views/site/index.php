@@ -12,15 +12,7 @@
 	{ 
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/countdown.js" type="text/javascript"></script>'.PHP_EOL;
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/timers.js" type="text/javascript"></script>'.PHP_EOL;
-        $this->widget('zii.widgets.grid.CGridView', array(
-        'id'=>'timers-grid',
-        'cssFile'=>Yii::app()->theme->baseUrl .'/css/gridview/styles.css',
-        'dataProvider'=>$model->getAll(),
-        'enableSorting'=>false,
-        'selectableRows'=>0,
-        'rowCssClassExpression' => '$data->friendly == "No" ? "hostile" : "allied"',
-        'rowHtmlOptionsExpression' => 'array("id"=>$data->id)',
-        'columns'=>array(
+        $columns = array(
             array(
                 'class'=>'CLinkColumn',
                 'labelExpression'=>'"<b>".$data->location."</b>"',
@@ -49,7 +41,19 @@
                                        'width'=>'"145px"'),
                  ),
             'notes',
-            ),
+            );
+        if (!Yii::app()->user->isGuest) {
+            array_push($columns, 'posted_by');
+        };
+        $this->widget('zii.widgets.grid.CGridView', array(
+        'id'=>'timers-grid',
+        'cssFile'=>Yii::app()->theme->baseUrl .'/css/gridview/styles.css',
+        'dataProvider'=>$model->getAll(),
+        'enableSorting'=>false,
+        'selectableRows'=>0,
+        'rowCssClassExpression' => '$data->friendly == "No" ? "hostile" : "allied"',
+        'rowHtmlOptionsExpression' => 'array("id"=>$data->id)',
+        'columns'=>$columns,
         'htmlOptions'=>array('style'=>'color: black;'),
         ));
         echo '<script> window.setInterval("updateTimers()", 1000); </script>'.PHP_EOL;
