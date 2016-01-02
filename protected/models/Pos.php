@@ -14,6 +14,7 @@
  * @property string $alliance
  * @property string $notes
  * @property enum $friendly
+ * @property integer $posted_by
  * 
  */
 class Pos extends CActiveRecord
@@ -32,6 +33,7 @@ class Pos extends CActiveRecord
                                                              . $this->hours ." hours "
                                                              . $this->minutes." minutes")));
         endif;
+        $this->posted_by = Yii::app()->user->id;
         return true;           
     }
 	/**
@@ -100,10 +102,11 @@ class Pos extends CActiveRecord
 			'moon' => 'Moon',
 			'alliance' => 'Alliance',
 			'notes' => 'Notes',
-            'days'=>'Days',
-            'hours'=>'Hours',
-            'minutes'=>'Mins',
-            'friendly' =>'Friendly',
+                        'days'=>'Days',
+                        'hours'=>'Hours',
+                        'minutes'=>'Mins',
+                        'friendly' =>'Friendly',
+                        'posted_by' =>'Posted by',
 		);
 	}
 
@@ -127,7 +130,8 @@ class Pos extends CActiveRecord
 		$criteria->compare('moon',$this->moon);
 		$criteria->compare('alliance',$this->alliance,true);
 		$criteria->compare('notes',$this->notes,true);
-        $criteria->compare('friendly',$this->friendly,true);
+                $criteria->compare('friendly',$this->friendly,true);
+                $criteria->compare('posted_by',$this->friendly,true);
 
 		$dp = new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,
