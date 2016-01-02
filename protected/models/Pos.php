@@ -14,7 +14,7 @@
  * @property string $alliance
  * @property string $notes
  * @property enum $friendly
- * @property integer $posted_by
+ * @property string $posted_by
  * 
  */
 class Pos extends CActiveRecord
@@ -33,7 +33,7 @@ class Pos extends CActiveRecord
                                                              . $this->hours ." hours "
                                                              . $this->minutes." minutes")));
         endif;
-        $this->posted_by = Yii::app()->user->id;
+        $this->posted_by = Yii::app()->user->name;
         return true;           
     }
 	/**

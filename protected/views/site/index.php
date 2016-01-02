@@ -42,7 +42,7 @@
                  ),
             'notes',
             );
-        if (!Yii::app()->user->isGuest) {
+        if (Yii::app()->user->checkAccess('pos.admin')) {
             array_push($columns, 'posted_by');
         };
         $this->widget('zii.widgets.grid.CGridView', array(
