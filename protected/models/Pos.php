@@ -206,7 +206,7 @@ class Pos extends CActiveRecord
             'sort'=>array('defaultOrder'=>'date ASC'),
         ));
         
-        $dp->setPagination(array('pageSize'=>$dp->getTotalItemCount()));
+        $dp->setPagination(array('pageSize'=>2));
 
         
         return $dp;
