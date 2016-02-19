@@ -299,6 +299,7 @@ class Pos extends CActiveRecord
         return $timeshift;
     }
     
+    
     public function is_expired($start, $end="NOW")
     {
         $sdate = strtotime($start);
@@ -309,6 +310,7 @@ class Pos extends CActiveRecord
         return True;
     }
     
+    
     public function date_html($start, $end="NOW")
     {
         if (is_expired($start, $end))
@@ -316,7 +318,7 @@ class Pos extends CActiveRecord
             $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
         } else {
             $html = '<span class="timer">'. $this->timer($start, $end) .'</span>';
-        }
+        }       
         return $html;
     }
 }
