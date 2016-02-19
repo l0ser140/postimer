@@ -33,7 +33,7 @@
                   'htmlOptions'=>array('class'=>'date'),
                  ),
             array('class'=>'DataColumn',
-                  'header' => 'Time Remaining',
+                  'header' => 'Time Passed',
                   'name'=>'time_remaining',
                   'type' => 'raw',
                   'value'=>'$data->date_html("NOW", $data->date)',
