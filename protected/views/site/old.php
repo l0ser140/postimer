@@ -6,8 +6,9 @@
 
     date_default_timezone_set('UTC');
     
-    $model= new Pos; 
+    echo '<h1>Old Timers</h1>'.PHP_EOL;
     
+    $model= new Pos; 
     if (Yii::app()->user->checkAccess('pos.admin'))
 	{ 
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/countdown.js" type="text/javascript"></script>'.PHP_EOL;
