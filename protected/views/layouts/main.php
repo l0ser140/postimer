@@ -29,6 +29,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
+                                array('label'=>'Old Timers', 'url'=>array('/pos/old'),'visible'=>Yii::app()->user->checkAccess('pos.admin')),
                                 array('label'=>'Create Timer', 'url'=>array('/pos/create'),'visible'=>Yii::app()->user->checkAccess('pos.admin')),
                                 array('label'=>'Manage Timers', 'url'=>array('/pos/admin'),'visible'=>Yii::app()->user->checkAccess('pos.admin')),
                                 array('label'=>'Access Rights', 'url'=>array('/rights/assignment'),'visible'=>Yii::app()->getModule('user')->isAdmin()),                

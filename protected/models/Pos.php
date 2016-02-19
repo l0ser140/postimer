@@ -166,6 +166,52 @@ class Pos extends CActiveRecord
         return $dp;
     }
     
+     /**
+     * Retrieves a list of actual pos timers
+     * @return CActiveDataProvider.
+     */
+    public function getActual()
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
+
+        $criteria=new CDbCriteria;
+        $criteria->condition = '`date` >= now() - INTERVAL 1 DAY';
+        
+        $dp = new CActiveDataProvider(get_class($this), array(
+            'criteria'=>$criteria,
+            'sort'=>array('defaultOrder'=>'date ASC'),
+        ));
+        
+        $dp->setPagination(array('pageSize'=>$dp->getTotalItemCount()));
+
+        
+        return $dp;
+    }
+    
+    /**
+     * Retrieves a list of actual pos timers
+     * @return CActiveDataProvider.
+     */
+    public function getOld()
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
+
+        $criteria=new CDbCriteria;
+        $criteria->condition = '`date` < now() - INTERVAL 1 DAY';
+        
+        $dp = new CActiveDataProvider(get_class($this), array(
+            'criteria'=>$criteria,
+            'sort'=>array('defaultOrder'=>'date ASC'),
+        ));
+        
+        $dp->setPagination(array('pageSize'=>$dp->getTotalItemCount()));
+
+        
+        return $dp;
+    }
+    
     public function enumItem($attribute)
         {
                 $attr=$attribute;

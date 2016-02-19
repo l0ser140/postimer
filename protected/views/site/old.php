@@ -48,7 +48,7 @@
         $this->widget('zii.widgets.grid.CGridView', array(
         'id'=>'timers-grid',
         'cssFile'=>Yii::app()->theme->baseUrl .'/css/gridview/styles.css',
-        'dataProvider'=>$model->getActual(),
+        'dataProvider'=>$model->getOld(),
         'enableSorting'=>false,
         'selectableRows'=>0,
         'rowCssClassExpression' => '$data->friendly == "No" ? "hostile" : "allied"',
