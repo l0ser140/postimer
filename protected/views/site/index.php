@@ -58,7 +58,9 @@
         ));
         if (Yii::app()->user->checkAccess('pos.admin'))
         {
+            echo '<div style="text-align:center">'.PHP_EOL;
             echo CHtml::link('Old Timers',array('site/old'));
+            echo '</div>'.PHP_EOL;
         }
         echo '<script> window.setInterval("updateTimers()", 1000); </script>'.PHP_EOL;
         echo '<script> window.setInterval("$.fn.yiiGridView.update(\'timers-grid\')", 60000); </script>'.PHP_EOL;

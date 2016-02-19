@@ -203,10 +203,10 @@ class Pos extends CActiveRecord
         
         $dp = new CActiveDataProvider(get_class($this), array(
             'criteria'=>$criteria,
-            'sort'=>array('defaultOrder'=>'date ASC'),
+            'sort'=>array('defaultOrder'=>'date DESC'),
         ));
         
-        $dp->setPagination(array('pageSize'=>2));
+        $dp->setPagination(array('pageSize'=>50));
 
         
         return $dp;
