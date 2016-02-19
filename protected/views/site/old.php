@@ -38,7 +38,7 @@
                   'type' => 'raw',
                   'value'=>'$data->date_html("NOW", $data->date)',
                   'evaluateHtmlOptions'=>true,
-                  'htmlOptions'=>array('class'=>'$data->is_expired("NOW", $data->date) == True ? "remaining expired" : "remaining"',
+                  'htmlOptions'=>array('class'=>'"remaining"',
                                        'width'=>'"145px"'),
                  ),
             );
