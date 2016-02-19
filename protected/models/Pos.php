@@ -314,8 +314,9 @@ class Pos extends CActiveRecord
         if (is_expired($start, $end))
         {
             $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
+        } else {
+            $html = '<span class="timer">'. $this->timer($start, $end) .'</span>';
         }
-        $html = $this->timer($start, $end);
         return $html;
     }
 }
