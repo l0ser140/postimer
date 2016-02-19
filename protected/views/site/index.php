@@ -56,6 +56,10 @@
         'columns'=>$columns,
         'htmlOptions'=>array('style'=>'color: black;'),
         ));
+        if (Yii::app()->user->checkAccess('pos.admin'))
+        {
+            echo CHtml::link('Old Timers',array('site/old'));
+        }
         echo '<script> window.setInterval("updateTimers()", 1000); </script>'.PHP_EOL;
         echo '<script> window.setInterval("$.fn.yiiGridView.update(\'timers-grid\')", 60000); </script>'.PHP_EOL;
 	}
