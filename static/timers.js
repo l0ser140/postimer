@@ -23,7 +23,7 @@ for(var i=0; i<rows.length; i++){
         var remaining = rows[i].getElementsByClassName('remaining')[0];
         if (date < new Date())
         {
-            if (remaining.className !== "remaining expired"){
+            if (remaining.className == "remaining active"){
                 remaining.className = "remaining expired";
             }
             remaining.getElementsByTagName('span')[1].innerHTML = "-" + countdown(new Date(), date, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);

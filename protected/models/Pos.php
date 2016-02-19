@@ -299,11 +299,6 @@ class Pos extends CActiveRecord
         return $timeshift;
     }
     
-    public function date_html($start, $end="NOW")
-    {
-        $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
-        return $html;
-    }
     
     public function is_expired($start, $end="NOW")
     {
@@ -315,15 +310,15 @@ class Pos extends CActiveRecord
         return True;
     }
     
-    
-//    public function date_html($start, $end="NOW")
-//    {
-//        if (is_expired($start, $end))
-//        {
-//            $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
-//        } else {
-//            $html = '<span class="timer">'. $this->timer($start, $end) .'</span>';
-//        }       
-//        return $html;
-//    }
+
+    public function date_html($start, $end="NOW")
+    {
+        if (True)
+        {
+            $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
+        } else {
+            $html = '<span class="timer">'. $this->timer($start, $end) .'</span>';
+        }
+        return $html;
+    }
 }
