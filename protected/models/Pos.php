@@ -313,12 +313,7 @@ class Pos extends CActiveRecord
 
     public function date_html($start, $end="NOW")
     {
-        if ($this->is_expired($start, $end))
-        {
-            $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
-        } else {
-            $html = '<span class="timer">'. $this->timer($start, $end) .'</span>';
-        }
+        $html = '<span class="exptext">Expired</span><span class="timer">'. $this->timer($start, $end) .'</span>';
         return $html;
     }
 }
