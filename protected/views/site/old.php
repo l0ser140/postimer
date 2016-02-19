@@ -8,7 +8,7 @@
     
     $model= new Pos; 
     
-    if (!Yii::app()->user->checkAccess('pos.admin'))
+    if (Yii::app()->user->checkAccess('pos.admin'))
 	{ 
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/countdown.js" type="text/javascript"></script>'.PHP_EOL;
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/timers.js" type="text/javascript"></script>'.PHP_EOL;
