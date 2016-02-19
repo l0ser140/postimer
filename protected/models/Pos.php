@@ -176,7 +176,7 @@ class Pos extends CActiveRecord
         // should not be searched.
 
         $criteria=new CDbCriteria;
-        $criteria->condition = '`date` >= now() - INTERVAL 1 DAY';
+        $criteria->condition = 'date >= CONVERT_TZ(now() - INTERVAL 1 DAY, @@session.time_zone, "UTC")';
         
         $dp = new CActiveDataProvider(get_class($this), array(
             'criteria'=>$criteria,
@@ -199,7 +199,7 @@ class Pos extends CActiveRecord
         // should not be searched.
 
         $criteria=new CDbCriteria;
-        $criteria->condition = '`date` < now() - INTERVAL 1 DAY';
+        $criteria->condition = 'date < CONVERT_TZ(now() - INTERVAL 1 DAY, @@session.time_zone, "UTC")';
         
         $dp = new CActiveDataProvider(get_class($this), array(
             'criteria'=>$criteria,
