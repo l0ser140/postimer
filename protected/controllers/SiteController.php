@@ -31,7 +31,16 @@ class SiteController extends RController
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
-
+        
+	/**
+	 * This is the default 'old' action that is invoked
+	 * when an action is not explicitly requested by users.
+	 */
+	public function actionOld()
+	{
+		$this->render('old');
+	}
+        
 	/**
 	 * This is the action to handle external exceptions.
 	 */
