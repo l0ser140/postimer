@@ -42,7 +42,7 @@
                                        'width'=>'"145px"'),
                  ),
             );
-        if (Yii::app()->user->checkAccess('Pos.Old')) {
+        if (Yii::app()->user->checkAccess('Pos.Notes')) {
             array_push($columns, 'notes');
             array_push($columns, 'posted_by');
         };
