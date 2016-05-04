@@ -9,7 +9,7 @@
     echo '<h1>Old Timers</h1>'.PHP_EOL;
     
     $model= new Pos; 
-    if (Yii::app()->user->checkAccess('pos.admin'))
+    if (Yii::app()->user->checkAccess('Pos.Old'))
 	{ 
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/countdown.js" type="text/javascript"></script>'.PHP_EOL;
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/timers.js" type="text/javascript"></script>'.PHP_EOL;
@@ -42,7 +42,7 @@
                                        'width'=>'"145px"'),
                  ),
             );
-        if (Yii::app()->user->checkAccess('pos.admin')) {
+        if (Yii::app()->user->checkAccess('Pos.Notes')) {
             array_push($columns, 'notes');
             array_push($columns, 'posted_by');
         };

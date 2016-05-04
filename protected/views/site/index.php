@@ -42,7 +42,7 @@
                                        'width'=>'"145px"'),
                  ),
             );
-        if (Yii::app()->user->checkAccess('pos.admin')) {
+        if (Yii::app()->user->checkAccess('Pos.Old')) {
             array_push($columns, 'notes');
             array_push($columns, 'posted_by');
         };
@@ -57,7 +57,7 @@
         'columns'=>$columns,
         'htmlOptions'=>array('style'=>'color: black;'),
         ));
-        if (Yii::app()->user->checkAccess('pos.admin'))
+        if (Yii::app()->user->checkAccess('Pos.Old'))
         {
             echo '<div style="text-align:center">'.PHP_EOL;
             echo CHtml::link('Old Timers',array('site/old'));
