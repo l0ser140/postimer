@@ -10,6 +10,7 @@
     
     if (!Yii::app()->user->isGuest or !Yii::app()->params['requireLogin'])
 	{ 
+        if (Yii::app()->user->checkAccess('Pos.Index')) {
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/countdown.js" type="text/javascript"></script>'.PHP_EOL;
         echo '<script src="http://'. $_SERVER['HTTP_HOST'] .'/static/timers.js" type="text/javascript"></script>'.PHP_EOL;
         $columns = array(
@@ -64,7 +65,11 @@
         }
         echo '<script> window.setInterval("updateTimers()", 1000); </script>'.PHP_EOL;
         echo '<script> window.setInterval("$.fn.yiiGridView.update(\'timers-grid\')", 60000); </script>'.PHP_EOL;
-	}
+	
+        } else {
+            echo 'You have no permissions to view the Timer information'; 
+        }
+        }
     else
         echo 'You must log in to view the Timer information';        
 ?>
